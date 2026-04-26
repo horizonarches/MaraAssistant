@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#0D6EFD"/>
+  <text x="256" y="240" font-size="46" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, Arial">Patient Care</text>
+  <text x="256" y="300" font-size="38" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, Arial">Chatbot Portal</text>
+</svg>

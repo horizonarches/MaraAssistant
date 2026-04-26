@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PatientCareChatbotPortal.Views.NavBanner">
+    <Border StrokeThickness="0"
+            BackgroundColor="{DynamicResource BootstrapDark}"
+            StrokeShape="RoundRectangle 0"
+            Padding="12,10">
+        <HorizontalStackLayout Spacing="8">
+            <Button Text="▶ Start Session" Style="{StaticResource NavButton}" Clicked="OnStartSessionClicked" />
+            <Button Text="⚙ Admin" Style="{StaticResource NavButton}" Clicked="OnAdminClicked" />
+            <Button Text="💬 User" Style="{StaticResource NavButton}" Clicked="OnUserClicked" />
+            <Button Text="ℹ Info" Style="{StaticResource NavButton}" Clicked="OnInfoClicked" />
+        </HorizontalStackLayout>
+    </Border>
+</ContentView>

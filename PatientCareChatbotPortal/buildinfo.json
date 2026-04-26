@@ -1,0 +1,5 @@
+{
+  "buildSummary": "Patient Care Chatbot Portal - Windows MAUI front-end scaffold",
+  "authorCopyright": "Author: Horizon Team © 2026",
+  "appDescription": "A front-end chatbot portal for medical patient care with administrative controls, user chat interaction, live room-condition gauges, theme switching through chatbot JSON tags, and informational metadata."
+}

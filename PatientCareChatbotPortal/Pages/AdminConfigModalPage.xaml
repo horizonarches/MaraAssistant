@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PatientCareChatbotPortal.Pages.AdminConfigModalPage"
+             Title="Admin Configuration">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+            <Label Text="Administrative Configuration" Style="{StaticResource PageHeading}" FontSize="24" />
+
+            <Border Style="{StaticResource CardBorder}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Clinical Notes and Summary" Style="{StaticResource SectionHeading}" FontSize="18" />
+
+                    <Button Text="⤴ Upload Clinical Notes (.txt/.docx)" Clicked="OnUploadNotesClicked" />
+                    <Label x:Name="UploadStatusLabel" Text="No file uploaded." Style="{StaticResource PageSubtitle}" />
+
+                    <Label Text="Patient Title" Style="{StaticResource FieldLabel}" />
+                    <Picker x:Name="PatientTitlePicker" Title="Select title" />
+
+                    <Label Text="Patient First Name" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="PatientFirstNameEntry" MaxLength="20" Placeholder="Enter first name" />
+
+                    <Label Text="Patient Middle Name" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="PatientMiddleNameEntry" MaxLength="10" Placeholder="Enter middle name" />
+
+                    <Label Text="Patient Last Name" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="PatientLastNameEntry" MaxLength="30" Placeholder="Enter last name" />
+
+                    <Label Text="Patient Suffix" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="PatientSuffixEntry" MaxLength="5" Placeholder="Enter suffix" />
+
+                    <Label Text="Patient Age" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="PatientAgeEntry" Keyboard="Numeric" Placeholder="Enter age" />
+
+                    <Label Text="Patient Race" Style="{StaticResource FieldLabel}" />
+                    <Picker x:Name="PatientRacePicker" Title="Select race" />
+
+                    <Label Text="Patient Gender Assigned At Birth" Style="{StaticResource FieldLabel}" />
+                    <Picker x:Name="PatientGenderPicker" Title="Select gender assigned at birth" />
+
+                    <Label Text="Patient Religion" Style="{StaticResource FieldLabel}" />
+                    <Picker x:Name="PatientReligionPicker" Title="Select religion" />
+
+                    <Label Text="Patient Nationality" Style="{StaticResource FieldLabel}" />
+                    <Picker x:Name="PatientNationalityPicker" Title="Select nationality" />
+
+                    <Label Text="Patient Height (feet)" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="PatientHeightFeetEntry" Keyboard="Numeric" Placeholder="Enter height in feet" />
+
+                    <Label Text="Patient Height (inches)" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="PatientHeightInchesEntry" Keyboard="Numeric" Placeholder="Enter additional inches" />
+
+                    <Label Text="Patient Weight (lbs)" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="PatientWeightLbsEntry" Keyboard="Numeric" Placeholder="Enter weight in lbs" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource CardBorder}">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Room Conditions" Style="{StaticResource SectionHeading}" FontSize="18" />
+
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Light Conditions" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="LightLevelEntry" Keyboard="Numeric" Placeholder="Enter light value (0-100)" />
+
+                        <Label Text="Temperature" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="TemperatureValueEntry" Keyboard="Numeric" Placeholder="Enter temperature" />
+
+                        <Label Text="Celsius or Fahrenheit" Style="{StaticResource FieldLabel}" />
+                        <HorizontalStackLayout Spacing="16">
+                            <RadioButton x:Name="CelsiusRadio" GroupName="TemperatureUnit" Content="Celsius" />
+                            <RadioButton x:Name="FahrenheitRadio" GroupName="TemperatureUnit" Content="Fahrenheit" />
+                        </HorizontalStackLayout>
+
+                        <Label Text="Bed Incline (degrees)" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="BedInclineEntry" Keyboard="Numeric" Placeholder="Enter incline (0-60)" />
+
+                        <Label Text="Current pain level" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="CurrentPainLevelPicker" Title="Select pain level (0-10)" />
+
+                        <Label Text="Current stress level" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="CurrentStressLevelPicker" Title="Select stress level (0-10)" />
+
+                        <Label Text="Current difficulty sleeping" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="CurrentDifficultySleepingPicker" Title="Select difficulty sleeping (0-10)" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="✔ Save" Clicked="OnSaveClicked" />
+                <Button Text="✖ Cancel" Style="{StaticResource SecondaryButton}" Clicked="OnCancelClicked" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

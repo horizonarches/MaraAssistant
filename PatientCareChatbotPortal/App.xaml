@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PatientCareChatbotPortal.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="BootstrapPrimary">#0D6EFD</Color>
+            <Color x:Key="BootstrapSecondary">#6C757D</Color>
+            <Color x:Key="BootstrapSuccess">#198754</Color>
+            <Color x:Key="BootstrapInfo">#0DCAF0</Color>
+            <Color x:Key="BootstrapWarning">#FFC107</Color>
+            <Color x:Key="BootstrapDanger">#DC3545</Color>
+            <Color x:Key="BootstrapLight">#F8F9FA</Color>
+            <Color x:Key="BootstrapDark">#212529</Color>
+
+            <Color x:Key="AppBackground">#F8F9FA</Color>
+            <Color x:Key="CardBackground">#FFFFFF</Color>
+            <Color x:Key="AppText">#212529</Color>
+            <Color x:Key="MutedText">#6C757D</Color>
+
+            <Style TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{DynamicResource AppBackground}" />
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource AppText}" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource BootstrapPrimary}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Padding" Value="12,8" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style x:Key="SecondaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource BootstrapSecondary}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Padding" Value="12,8" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style x:Key="NavButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#495057" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Padding" Value="12,8" />
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="MinimumWidthRequest" Value="118" />
+            </Style>
+
+            <Style x:Key="CardBorder" TargetType="Border">
+                <Setter Property="BackgroundColor" Value="{DynamicResource CardBackground}" />
+                <Setter Property="Stroke" Value="#DEE2E6" />
+                <Setter Property="StrokeThickness" Value="1" />
+                <Setter Property="StrokeShape" Value="RoundRectangle 12" />
+                <Setter Property="Padding" Value="14" />
+            </Style>
+
+            <Style TargetType="Editor">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="{DynamicResource AppText}" />
+                <Setter Property="AutoSize" Value="TextChanges" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="{DynamicResource AppText}" />
+            </Style>
+
+            <Style TargetType="Picker">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="{DynamicResource AppText}" />
+                <Setter Property="TitleColor" Value="{DynamicResource MutedText}" />
+            </Style>
+
+            <Style TargetType="RadioButton">
+                <Setter Property="TextColor" Value="{DynamicResource AppText}" />
+            </Style>
+
+            <Style x:Key="PageHeading" TargetType="Label">
+                <Setter Property="FontSize" Value="28" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{DynamicResource AppText}" />
+            </Style>
+
+            <Style x:Key="PageSubtitle" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="{DynamicResource MutedText}" />
+            </Style>
+
+            <Style x:Key="SectionHeading" TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{DynamicResource AppText}" />
+            </Style>
+
+            <Style x:Key="FieldLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{DynamicResource MutedText}" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

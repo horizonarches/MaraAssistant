@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:PatientCareChatbotPortal.Views"
+             xmlns:models="clr-namespace:PatientCareChatbotPortal.Models"
+             x:Class="PatientCareChatbotPortal.Pages.UserPage"
+             Title="User Screen">
+    <Grid RowDefinitions="Auto,*">
+        <views:NavBanner Grid.Row="0" />
+
+        <Grid Grid.Row="1" Padding="18" RowDefinitions="Auto,Auto,*" RowSpacing="10">
+            <Border Grid.Row="0" Style="{StaticResource CardBorder}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Chat History" Style="{StaticResource SectionHeading}" />
+                    <ScrollView x:Name="ChatHistoryScroll" HeightRequest="210">
+                        <Label x:Name="ChatHistoryLabel" LineBreakMode="WordWrap" />
+                    </ScrollView>
+                </VerticalStackLayout>
+            </Border>
+
+            <Grid Grid.Row="1" ColumnDefinitions="*,Auto,Auto,Auto" ColumnSpacing="8">
+                <Entry x:Name="PromptEntry" Grid.Column="0" Placeholder="Enter prompt..." ReturnType="Send" Completed="OnSendClicked" />
+                <Button x:Name="MicButton" Grid.Column="1" Text="🎤" WidthRequest="56" Style="{StaticResource SecondaryButton}" TextColor="White" BackgroundColor="#2E7D32" Clicked="OnMicClicked" />
+                <Button Grid.Column="2" Text="Send" Clicked="OnSendClicked" />
+                <Button Grid.Column="3" Text="Export" Style="{StaticResource SecondaryButton}" Clicked="OnExportClicked" />
+            </Grid>
+
+            <Border Grid.Row="2" Style="{StaticResource CardBorder}">
+                <ScrollView>
+                    <VerticalStackLayout Spacing="14">
+                        <Label Text="Room Condition Gauges (Read Only)" Style="{StaticResource SectionHeading}" />
+
+                        <Label Text="Patient Condition (Read Only)" Style="{StaticResource FieldLabel}" />
+                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="10" RowSpacing="6">
+                            <Label Grid.Row="0" Grid.Column="0" Text="Pain level" />
+                            <Label Grid.Row="0" Grid.Column="1" x:Name="PainLevelValueLabel" Text="--" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+
+                            <Label Grid.Row="1" Grid.Column="0" Text="Stress level" />
+                            <Label Grid.Row="1" Grid.Column="1" x:Name="StressLevelValueLabel" Text="--" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+
+                            <Label Grid.Row="2" Grid.Column="0" Text="Difficulty sleeping" />
+                            <Label Grid.Row="2" Grid.Column="1" x:Name="SleepDifficultyValueLabel" Text="--" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                        </Grid>
+
+                        <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,*,Auto" ColumnSpacing="8">
+                            <Label Grid.Column="0" Text="Voice" VerticalOptions="Center" Style="{StaticResource FieldLabel}" />
+                            <Switch Grid.Column="1" x:Name="VoiceSwitch" IsToggled="True" Toggled="OnVoiceToggled" />
+                            <Label Grid.Column="2" Text="Music" VerticalOptions="Center" Style="{StaticResource FieldLabel}" />
+                            <Switch Grid.Column="3" x:Name="MusicSwitch" IsToggled="True" Toggled="OnMusicToggled" />
+                            <Slider Grid.Column="4" x:Name="MusicVolumeSlider" Minimum="0" Maximum="1" Value="0.2" ValueChanged="OnMusicVolumeChanged" />
+                            <Button Grid.Column="5" Text="Stop Music" Style="{StaticResource SecondaryButton}" Clicked="OnStopMusicClicked" />
+                        </Grid>
+
+                        <Label Text="Temperature" Style="{StaticResource FieldLabel}" />
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10" RowDefinitions="Auto,Auto,Auto,Auto">
+                            <Label x:Name="TemperatureValueLabel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="--" FontAttributes="Bold" />
+                            <Label Grid.Row="1" Grid.Column="0" Text="50" VerticalOptions="Center" />
+                            <Slider x:Name="TemperatureRuler" Grid.Row="1" Grid.Column="1" Minimum="50" Maximum="90" IsEnabled="False" />
+                            <Label Grid.Row="1" Grid.Column="2" Text="90" VerticalOptions="Center" />
+
+                            <Grid Grid.Row="2" Grid.Column="1" ColumnDefinitions="*,*,*,*,*" Margin="6,0,6,0">
+                                <BoxView Grid.Column="0" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Start" VerticalOptions="Start" />
+                                <BoxView Grid.Column="1" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="2" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="3" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="4" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="End" VerticalOptions="Start" />
+                            </Grid>
+
+                            <Grid Grid.Row="3" Grid.Column="1" ColumnDefinitions="*,*,*,*,*" Margin="0,0,0,2">
+                                <Label Grid.Column="0" Text="50" FontSize="10" HorizontalOptions="Start" TextColor="#6C757D" />
+                                <Label Grid.Column="1" Text="60" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="2" Text="70" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="3" Text="80" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="4" Text="90" FontSize="10" HorizontalOptions="End" TextColor="#6C757D" />
+                            </Grid>
+                        </Grid>
+
+                        <Label Text="Lighting" Style="{StaticResource FieldLabel}" />
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10" RowDefinitions="Auto,Auto,Auto,Auto">
+                            <Label x:Name="LightingValueLabel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="--" FontAttributes="Bold" />
+                            <Label Grid.Row="1" Grid.Column="0" Text="0" VerticalOptions="Center" />
+                            <Slider x:Name="LightingRuler" Grid.Row="1" Grid.Column="1" Minimum="0" Maximum="100" IsEnabled="False" />
+                            <Label Grid.Row="1" Grid.Column="2" Text="100" VerticalOptions="Center" />
+
+                            <Grid Grid.Row="2" Grid.Column="1" ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*" Margin="6,0,6,0">
+                                <BoxView Grid.Column="0" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Start" VerticalOptions="Start" />
+                                <BoxView Grid.Column="1" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="2" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="3" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="4" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="5" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="6" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="7" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="8" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="9" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="10" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="End" VerticalOptions="Start" />
+                            </Grid>
+
+                            <Grid Grid.Row="3" Grid.Column="1" ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*" Margin="0,0,0,2">
+                                <Label Grid.Column="0" Text="0" FontSize="10" HorizontalOptions="Start" TextColor="#6C757D" />
+                                <Label Grid.Column="1" Text="10" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="2" Text="20" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="3" Text="30" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="4" Text="40" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="5" Text="50" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="6" Text="60" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="7" Text="70" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="8" Text="80" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="9" Text="90" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="10" Text="100" FontSize="10" HorizontalOptions="End" TextColor="#6C757D" />
+                            </Grid>
+                        </Grid>
+
+                        <Label Text="Bed Incline" Style="{StaticResource FieldLabel}" />
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10" RowDefinitions="Auto,Auto,Auto,Auto">
+                            <Label x:Name="BedInclineValueLabel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="--" FontAttributes="Bold" />
+                            <Label Grid.Row="1" Grid.Column="0" Text="0" VerticalOptions="Center" />
+                            <Slider x:Name="BedInclineRuler" Grid.Row="1" Grid.Column="1" Minimum="0" Maximum="60" IsEnabled="False" />
+                            <Label Grid.Row="1" Grid.Column="2" Text="60" VerticalOptions="Center" />
+
+                            <Grid Grid.Row="2" Grid.Column="1" ColumnDefinitions="*,*,*,*,*,*,*" Margin="6,0,6,0">
+                                <BoxView Grid.Column="0" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Start" VerticalOptions="Start" />
+                                <BoxView Grid.Column="1" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="2" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="3" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="4" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="5" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="Center" VerticalOptions="Start" />
+                                <BoxView Grid.Column="6" WidthRequest="1" HeightRequest="8" Color="#8A8F98" HorizontalOptions="End" VerticalOptions="Start" />
+                            </Grid>
+
+                            <Grid Grid.Row="3" Grid.Column="1" ColumnDefinitions="*,*,*,*,*,*,*" Margin="0,0,0,2">
+                                <Label Grid.Column="0" Text="0" FontSize="10" HorizontalOptions="Start" TextColor="#6C757D" />
+                                <Label Grid.Column="1" Text="10" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="2" Text="20" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="3" Text="30" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="4" Text="40" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="5" Text="50" FontSize="10" HorizontalOptions="Center" TextColor="#6C757D" />
+                                <Label Grid.Column="6" Text="60" FontSize="10" HorizontalOptions="End" TextColor="#6C757D" />
+                            </Grid>
+                        </Grid>
+                    </VerticalStackLayout>
+                </ScrollView>
+            </Border>
+        </Grid>
+    </Grid>
+</ContentPage>

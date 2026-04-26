@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:PatientCareChatbotPortal.Views"
+             x:Class="PatientCareChatbotPortal.Pages.AdminPage"
+             Title="Administrative Screen">
+    <Grid RowDefinitions="Auto,*">
+        <views:NavBanner Grid.Row="0" />
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="16">
+                <Label Text="Administrative Screen" Style="{StaticResource PageHeading}" />
+                <Label Text="Manage patient notes, summary, and room conditions." Style="{StaticResource PageSubtitle}" />
+
+                <Button Text="⚙ Open Admin Configuration" Clicked="OnOpenModalClicked" />
+
+                <Border Style="{StaticResource CardBorder}">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Current App State" Style="{StaticResource SectionHeading}" />
+                        <Grid ColumnDefinitions="170,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="8">
+                            <Label Grid.Row="0" Grid.Column="0" Text="Pain level" Style="{StaticResource FieldLabel}" />
+                            <Label Grid.Row="0" Grid.Column="1" x:Name="PainLevelLabel" />
+
+                            <Label Grid.Row="1" Grid.Column="0" Text="Stress level" Style="{StaticResource FieldLabel}" />
+                            <Label Grid.Row="1" Grid.Column="1" x:Name="StressLevelLabel" />
+
+                            <Label Grid.Row="2" Grid.Column="0" Text="Sleep quality" Style="{StaticResource FieldLabel}" />
+                            <Label Grid.Row="2" Grid.Column="1" x:Name="SleepQualityLabel" />
+
+                            <Label Grid.Row="3" Grid.Column="0" Text="Light" Style="{StaticResource FieldLabel}" />
+                            <Label Grid.Row="3" Grid.Column="1" x:Name="LightLabel" />
+
+                            <Label Grid.Row="4" Grid.Column="0" Text="Temperature" Style="{StaticResource FieldLabel}" />
+                            <Label Grid.Row="4" Grid.Column="1" x:Name="TemperatureLabel" />
+
+                            <Label Grid.Row="5" Grid.Column="0" Text="Bed Incline" Style="{StaticResource FieldLabel}" />
+                            <Label Grid.Row="5" Grid.Column="1" x:Name="BedInclineLabel" />
+
+                            <Label Grid.Row="7" Grid.Column="0" Text="Clinical Notes" Style="{StaticResource FieldLabel}" />
+                            <Label Grid.Row="7" Grid.Column="1" x:Name="NotesLabel" />
+
+                            <Label Grid.Row="8" Grid.Column="0" Text="Recording" Style="{StaticResource FieldLabel}" />
+                            <Label Grid.Row="8" Grid.Column="1" x:Name="RecordingLabel" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
