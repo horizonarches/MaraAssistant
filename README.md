@@ -3,6 +3,7 @@
 # 1. Scaffolding and code assistance was obtained via Github Copilot, currently using GPT-5.3-Codex.
 # 2. No code from any existing project or effort was used to construct Mara.
 # 3. The inspiration for the implemented functionality set was from the author.
+# 4. The following README content was AI generated.  Proceed accordingly.
 
 # Patient Care Chatbot Portal (Windows .NET MAUI)
 
