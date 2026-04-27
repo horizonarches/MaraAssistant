@@ -7,8 +7,10 @@
 <img width="330" height="614" alt="image" src="https://github.com/user-attachments/assets/cf085a66-9055-4c21-aa01-662f3d3814e8" />
 <img width="338" height="1014" alt="image" src="https://github.com/user-attachments/assets/440c8869-c09b-4990-b9bf-be10888f20c8" />
 <img width="322" height="1030" alt="image" src="https://github.com/user-attachments/assets/f16bff72-8dbf-43cc-8217-9bb656709d01" />
+
 # 5. The following Adobe Stock assets are used in accordance with purchased license:
 <img width="718" height="969" alt="image" src="https://github.com/user-attachments/assets/239184a9-a6fc-452a-8ccc-4ee2b542bb1d" />
+
 # 6. The following README content was AI generated.  Proceed accordingly.
 
 # Patient Care Chatbot Portal (Windows .NET MAUI)
